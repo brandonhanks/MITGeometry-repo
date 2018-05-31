@@ -15,7 +15,7 @@ public class ScaleInput : MonoBehaviour {
 	public void changeScaleX (float newValue) {
 
 
-		cube.transform.localScale = new Vector3 (newValue, cube.transform.localScale.y, cube.transform.localScale.z); //scaling X value
+        cube.transform.localScale = new Vector3(newValue, cube.transform.localScale.y, cube.transform.localScale.z); //scaling X value
 
 	
 	}

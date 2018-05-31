@@ -14,16 +14,14 @@ public class MoveInput : MonoBehaviour {
 
 	public void movePosX (float newValue) {
 
+         cube.transform.position = new Vector3(newValue, cube.transform.position.y, cube.transform.position.z); //moving X position
 
-		cube.transform.position = new Vector3 (newValue, cube.transform.position.y, cube.transform.position.z); //moving X position
-
-
-	}
+    }
 
 	public void movePosY (float newValue) {
 
 
-		cube.transform.position= new Vector3 (cube.transform.position.x, newValue, cube.transform.position.z); //moving Y position
+		cube.transform.position = new Vector3 (cube.transform.position.x, newValue, cube.transform.position.z); //moving Y position
 
 
 	}
