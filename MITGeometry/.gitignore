@@ -64,5 +64,7 @@ sysinfo.txt
 !.vscode/extensions.json
 .history
 
+Library/
+.vscode/
 
 # End of https://www.gitignore.io/api/kate,unity,linux,visualstudiocode
