@@ -22,9 +22,9 @@ public class CubeOverlap : MonoBehaviour {
     {
         audio = GetComponent<AudioSource>(); //setting up audio source
 
-        Bounds maxBounds = RecursiveMeshBB(cubeClone);
-        radius = maxBounds.size.magnitude;
-        print(radius);
+        // Bounds maxBounds = RecursiveMeshBB(cubeClone);
+        // radius = maxBounds.size.magnitude;
+        // print(radius);
     }
 
     public void CreateInput()
@@ -43,21 +43,21 @@ public class CubeOverlap : MonoBehaviour {
         
     }
 
-    static public Bounds RecursiveMeshBB(GameObject go) //this method checks for the bounds (edges) of the cube being created
-    {
-        MeshFilter[] mfs = go.GetComponentsInChildren<MeshFilter>();
+    // static public Bounds RecursiveMeshBB(GameObject go) //this method checks for the bounds (edges) of the cube being created
+    // {
+    //     MeshFilter[] mfs = go.GetComponentsInChildren<MeshFilter>();
 
-        if (mfs.Length > 0)
-        {
-            Bounds b = mfs[0].mesh.bounds;
-            for (int i = 1; i < mfs.Length; i++)
-            {
-                b.Encapsulate(mfs[i].mesh.bounds);
-            }
-            return b;
-        }
-        else
-            return new Bounds();
-    }
+    //     if (mfs.Length > 0)
+    //     {
+    //         Bounds b = mfs[0].mesh.bounds;
+    //         for (int i = 1; i < mfs.Length; i++)
+    //         {
+    //             b.Encapsulate(mfs[i].mesh.bounds);
+    //         }
+    //         return b;
+    //     }
+    //     else
+    //         return new Bounds();
+    // }
 
 }
