@@ -403,10 +403,45 @@ __pycache__/
 # should be stored in the .pubxml.user file.
 
 
+# End of https://www.gitignore.io/api/kate,unity,linux,macos,visualstudio,visualstudiocode,windows
+
+
 ### Other
 .vscode/
 Library/
 Temp/
 
 
-# End of https://www.gitignore.io/api/kate,unity,linux,macos,visualstudio,visualstudiocode,windows
+# ===========================
+# Default Collab Ignore Rules
+# ===========================
+
+# OS Generated
+# ============
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+[Tt]humbs.db
+[Dd]esktop.ini
+
+# Visual Studio / MonoDevelop generated
+# =====================================
+[Ee]xported[Oo]bj/
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+
+# Unity generated
+# ===============
+[Oo]bj/
+[Bb]uild
+sysinfo.txt
+*.stackdump
