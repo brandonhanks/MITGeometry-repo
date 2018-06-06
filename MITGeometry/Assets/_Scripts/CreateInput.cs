@@ -7,10 +7,10 @@ public class CreateInput : MonoBehaviour {
 
 	public GameObject cube;
 
-	private Vector3 lastPosition = new Vector3 (0, 0, 0);
+	// private Vector3 lastPosition = new Vector3 (0, 0, 0);
 	private Vector3 offsetVector = new Vector3 (1.5f,1f,1.5f);
 
-	AudioSource audio;
+	new AudioSource audio;
 	public AudioClip clickSound;
 
     public int maxClones = 100;

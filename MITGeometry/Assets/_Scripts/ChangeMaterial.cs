@@ -12,8 +12,8 @@ public class ChangeMaterial : MonoBehaviour {
 	public Material unHighlighted;
 	public Material selectionHighlighted;
 
-	bool FirstMaterial = true;
-	bool SecondMaterial = false;
+	// bool FirstMaterial = true;
+	// bool SecondMaterial = false;
 
     [HideInInspector] public Renderer goRend;
 

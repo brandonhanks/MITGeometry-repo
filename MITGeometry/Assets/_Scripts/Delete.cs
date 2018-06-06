@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent (typeof (AudioSource))]
 public class Delete : MonoBehaviour {
 
-	AudioSource audio;
+	new AudioSource audio;
 	public AudioClip deleteSound;
 
 	void Start () {

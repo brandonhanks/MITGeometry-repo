@@ -7,16 +7,16 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class CubeOverlap : MonoBehaviour {
 
-    AudioSource audio;
+    new AudioSource audio;
     public AudioClip clickSound;
 
     public GameObject cubeClone;
-    public int maxClones;
+    // public int maxClones;
     public int areaSizeX;
     public int areaSizeY;
 
     float elapsed, radius;
-    int clones;
+    // int clones;
 
     void Start()
     {
@@ -30,16 +30,17 @@ public class CubeOverlap : MonoBehaviour {
     public void CreateInput()
     {
             audio.PlayOneShot(clickSound, 1.0f); //play click sfx once
+            radius = 0.0f;
 
             Vector3 randomPosition = cubeClone.transform.position + new Vector3(Random.Range(-areaSizeX, areaSizeX), radius, Random.Range(-areaSizeY, areaSizeY)); //setting up length and widthh of area to populate
 
-            if (!Physics.CheckSphere(randomPosition, radius) && clones < maxClones) //a physics based sphere is created around the cube instantiate and if there is a cube being created in that space, it will be recreated elsewhere
-            {
+            // if (!Physics.CheckSphere(randomPosition, radius) && clones < maxClones) //a physics based sphere is created around the cube instantiate and if there is a cube being created in that space, it will be recreated elsewhere
+            // {
                 if (cubeClone == gameObject) 
                     GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = randomPosition;  
                 else
                     Instantiate(cubeClone, randomPosition, Quaternion.identity);
-            }
+            // }
         
     }
 

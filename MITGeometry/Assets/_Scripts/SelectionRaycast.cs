@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SelectionRaycast : MonoBehaviour {
 
-    public Camera camera;
+    public new Camera camera;
 
 	public Material[] material; //material array for highlighted and unhighlighted objects
 
