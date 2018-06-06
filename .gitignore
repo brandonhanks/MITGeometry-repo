@@ -410,6 +410,7 @@ __pycache__/
 .vscode/
 Library/
 Temp/
+ProjectSettings/
 
 
 # ===========================

@@ -34,12 +34,14 @@ public class SelectionRaycast : MonoBehaviour {
 
 			Transform objectHit = hit.transform;
 
-			print (hit.transform.name); //print gameobject's name in console
+			// print (hit.transform.name); //print gameobject's name in console
 
 			selectedGameobject = hit.transform.gameObject; //the gameobject hit by the raycast is the selected gameobject
 
 			if (Input.GetMouseButtonDown (0)) { //if left mouse button is clicked, swap material from default material to highlighted material
-
+				print (currentMaterial);
+				print (material);
+				print (goRend.sharedMaterial);
 				objectSelected = true; //debugging
 				currentMaterial++; //increase material array by 1
 				currentMaterial %= material.Length; //toggle materials on click between 0 and 1
