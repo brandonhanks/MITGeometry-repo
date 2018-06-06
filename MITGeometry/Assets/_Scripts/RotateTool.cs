@@ -14,9 +14,9 @@ public class RotateTool : MonoBehaviour {
 
         float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed * Mathf.Deg2Rad; //rotating on the Y axis using mouse input
 
-        transform.Rotate(Vector3.right, rotationY); //setting rotation value and direction on Y axis
+        transform.RotateAround(Vector3.right, rotationY); //setting rotation value and direction on Y axis
 
-        transform.Rotate(Vector3.up, -rotationX); //setting rotation and direction on X axis
+        transform.RotateAround(Vector3.up, -rotationX); //setting rotation and direction on X axis
       
     }
 
