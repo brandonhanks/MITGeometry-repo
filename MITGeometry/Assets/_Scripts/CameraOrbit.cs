@@ -12,11 +12,11 @@ public class CameraOrbit : MonoBehaviour {
     public void MoveHorizontal(bool left)
     {
 
-        float dir = 1;
+        float dir = 0.1f;
 
         if (!left)
 
-            dir *= -1;
+            dir *= -0.1f;
         transform.RotateAround(target.position, Vector3.up, horizontalMovement * dir);
 
     }
