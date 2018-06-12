@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 326679560}
-  m_IndirectSpecularColor: {r: 0.8189943, g: 0.9132278, b: 0.89512825, a: 1}
+  m_IndirectSpecularColor: {r: 0.81899434, g: 0.9132278, b: 0.89512825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -366,10 +366,10 @@ GameObject:
   - component: {fileID: 24647284}
   m_Layer: 2
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &24647283
 Transform:
@@ -835,7 +835,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1238252917}
+      - m_Target: {fileID: 0}
         m_MethodName: movePlusX
         m_Mode: 1
         m_Arguments:
@@ -1904,8 +1904,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 500
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 70
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2432,7 +2432,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1238252917}
+      - m_Target: {fileID: 0}
         m_MethodName: movePlusZ
         m_Mode: 1
         m_Arguments:
@@ -2766,7 +2766,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1238252917}
+      - m_Target: {fileID: 0}
         m_MethodName: moveMinusY
         m_Mode: 1
         m_Arguments:
@@ -3708,7 +3708,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1796708561}
         m_MethodName: changePerspective
         m_Mode: 1
         m_Arguments:
@@ -4107,7 +4107,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1238252917}
+      - m_Target: {fileID: 0}
         m_MethodName: moveMinusZ
         m_Mode: 1
         m_Arguments:
@@ -4169,7 +4169,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1199077885
 MeshRenderer:
@@ -4233,7 +4233,7 @@ Transform:
   m_GameObject: {fileID: 1199077884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.84, y: -20, z: -0.012996}
-  m_LocalScale: {x: 426.1681, y: 8.581595, z: 426.1682}
+  m_LocalScale: {x: 600, y: 8.581595, z: 600}
   m_Children: []
   m_Father: {fileID: 2116629715}
   m_RootOrder: 0
@@ -4350,7 +4350,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1238252917}
+      - m_Target: {fileID: 0}
         m_MethodName: moveMinusX
         m_Mode: 1
         m_Arguments:
@@ -4462,7 +4462,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1238252915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948cdeb19bc784807b3586d1064a758b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2177f2da231cacf4ab03bc08367a6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cube: {fileID: 0}
@@ -4479,10 +4479,10 @@ GameObject:
   - component: {fileID: 1240517191}
   m_Layer: 2
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1240517190
 Transform:
@@ -4937,7 +4937,7 @@ GameObject:
   m_Layer: 0
   m_Name: Center Target
   m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5405,10 +5405,10 @@ GameObject:
   - component: {fileID: 1597821817}
   m_Layer: 2
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1597821817
 MeshRenderer:
@@ -5641,10 +5641,10 @@ GameObject:
   - component: {fileID: 1669800644}
   m_Layer: 2
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1669800643
 Transform:
@@ -6457,7 +6457,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1238252917}
+      - m_Target: {fileID: 0}
         m_MethodName: movePlusY
         m_Mode: 1
         m_Arguments:
@@ -6511,6 +6511,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1796708560}
+  - component: {fileID: 1796708561}
   m_Layer: 5
   m_Name: Perspective Container
   m_TagString: Untagged
@@ -6536,6 +6537,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1796708561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796708559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b700cc13c92884e8cfeac8820e28fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
 --- !u!1 &1804428376
 GameObject:
   m_ObjectHideFlags: 0
