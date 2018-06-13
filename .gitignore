@@ -408,9 +408,8 @@ __pycache__/
 
 ### Other
 .vscode/
-Library/
 Temp/
-ProjectSettings/
+
 
 
 # ===========================
