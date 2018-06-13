@@ -14,7 +14,7 @@ public class SelectionRaycast : MonoBehaviour {
 
 	public static GameObject selectedGameobject; //gameobject will constantly change on raycast hit
 
-	public bool objectSelected; //bool for debugging purposes
+	// public bool objectSelected; //bool for debugging purposes
 
 
     void Update()
@@ -37,22 +37,27 @@ public class SelectionRaycast : MonoBehaviour {
 			// print (hit.transform.name); //print gameobject's name in console
 
 			selectedGameobject = hit.transform.gameObject; //the gameobject hit by the raycast is the selected gameobject
-
-			if (Input.GetMouseButtonDown (0)) { //if left mouse button is clicked, swap material from default material to highlighted material
-				print (currentMaterial);
-				print (material);
-				print (goRend.sharedMaterial);
-				objectSelected = true; //debugging
-				currentMaterial++; //increase material array by 1
-				currentMaterial %= material.Length; //toggle materials on click between 0 and 1
-				goRend.sharedMaterial = material [currentMaterial]; //set value of material array to currentMaterial
-
-
-			} else {
 			
-				objectSelected = false; //debugging
-
+			if (selectedGameobjectGetComponent<Renderer>().material == material[0]) {
+				selectedGameobjectGetComponent<Renderer>().material = material[1];
+			} else {
+				selectedGameobjectGetComponent<Renderer>().material = material[0];
 			}
+			// if (Input.GetMouseButtonDown (0)) { //if left mouse button is clicked, swap material from default material to highlighted material
+			// 	// print (currentMaterial);
+			// 	// print (material);
+			// 	// print (goRend.sharedMaterial);
+			// 	// objectSelected = true; //debugging
+			// 	// currentMaterial++; //increase material array by 1
+			// 	// currentMaterial %= material.Length; //toggle materials on click between 0 and 1
+			// 	// goRend.sharedMaterial = material [currentMaterial]; //set value of material array to currentMaterial
+
+
+			// } else {
+			
+			// 	// objectSelected = false; //debugging
+
+			// }
 
 		}
 
