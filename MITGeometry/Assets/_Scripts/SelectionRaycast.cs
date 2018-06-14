@@ -34,18 +34,23 @@ public class SelectionRaycast : MonoBehaviour {
 
 			Transform objectHit = hit.transform;
 
-			// print (hit.transform.name); //print gameobject's name in console
-
-			selectedGameobject = hit.transform.gameObject; //the gameobject hit by the raycast is the selected gameobject
+			
 			if (Input.GetMouseButtonDown (0)) {
-				// print (currentMaterial);
-				print (material [0]);
-				print (goRend.sharedMaterial);
-				cubes = GameObject.FindGameObjectsWithTag("Cube");
-				foreach (GameObject cube in cubes) {
-					cube.GetComponent<Renderer>().sharedMaterial = material [0];
+
+				if (selectedGameobject == hit.transform.gameObject){
+					selectedGameobject = null;
+					goRend.sharedMaterial = material [0];
+				} else {
+					selectedGameobject = hit.transform.gameObject; //the gameobject hit by the raycast is the selected gameobject
+					cubes = GameObject.FindGameObjectsWithTag("Cube");
+					foreach (GameObject cube in cubes) {
+						cube.GetComponent<Renderer>().sharedMaterial = material [0];
+					}
+					goRend.sharedMaterial = material [1];
+
 				}
-				goRend.sharedMaterial = material [1];
+				
+
 				// if (goRend.sharedMaterial == material [0]) {
 				// 	goRend.sharedMaterial = material [1];
 				// } else {
