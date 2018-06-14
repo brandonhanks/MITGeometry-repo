@@ -10,8 +10,15 @@ public class Perspective : MonoBehaviour {
 
     void Start()
     {
+        // Ensures default config is set
         cam = Camera.main;
+        cam.orthographic = false;
+
         walls = GameObject.FindGameObjectsWithTag("Walls");
+        foreach (GameObject wall in walls)
+        {
+            wall.GetComponent<MeshRenderer>().enabled = true;
+        }
     }
 
 
