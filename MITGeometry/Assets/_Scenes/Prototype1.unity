@@ -2216,7 +2216,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1238252917}
+      - m_Target: {fileID: 950959174}
         m_MethodName: movePlusY
         m_Mode: 1
         m_Arguments:
@@ -2461,7 +2461,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1238252917}
+      - m_Target: {fileID: 950959174}
         m_MethodName: movePlusX
         m_Mode: 1
         m_Arguments:
@@ -3811,7 +3811,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1238252917}
+      - m_Target: {fileID: 950959174}
         m_MethodName: moveMinusY
         m_Mode: 1
         m_Arguments:
@@ -4047,6 +4047,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 950959173}
+  - component: {fileID: 950959174}
   m_Layer: 0
   m_Name: Rotate Container
   m_TagString: Untagged
@@ -4067,6 +4068,18 @@ Transform:
   m_Father: {fileID: 1683672973}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &950959174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 950959172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea415d427691402eac952408fece7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cube: {fileID: 0}
 --- !u!1 &952313736
 GameObject:
   m_ObjectHideFlags: 0
@@ -4814,7 +4827,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1238252917}
+      - m_Target: {fileID: 950959174}
         m_MethodName: moveMinusX
         m_Mode: 1
         m_Arguments:
@@ -6114,7 +6127,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1238252917}
+      - m_Target: {fileID: 950959174}
         m_MethodName: movePlusZ
         m_Mode: 1
         m_Arguments:
@@ -8885,7 +8898,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1238252917}
+      - m_Target: {fileID: 950959174}
         m_MethodName: moveMinusZ
         m_Mode: 1
         m_Arguments:
