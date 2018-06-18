@@ -34,14 +34,15 @@ public class CreateShape : MonoBehaviour {
             audio.PlayOneShot(clickSound, 1.0f); //play click sfx once
             radius = 0.0f;
 
-            Vector3 randomPosition =new Vector3(Random.Range(-areaSizeX, areaSizeX), radius, Random.Range(-areaSizeY, areaSizeY)); //setting up length and widthh of area to populate
+            Vector3 randomPosition =  new Vector3(Random.Range(-areaSizeX, areaSizeX), radius, Random.Range(-areaSizeY, areaSizeY)); //setting up length and widthh of area to populate
 
             // if (!Physics.CheckSphere(randomPosition, radius) && clones < maxClones) //a physics based sphere is created around the cube instantiate and if there is a cube being created in that space, it will be recreated elsewhere
             // {
                 // if (objectType == "cube") 
                 //     GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = randomPosition;  
                 // else
-            Instantiate(shape, randomPosition, Quaternion.identity);
+            GameObject clone = Instantiate(shape, randomPosition, Quaternion.identity);
+            clone.SetActive(true);
             // }
         
     }

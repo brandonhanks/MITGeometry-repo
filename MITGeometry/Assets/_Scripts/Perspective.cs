@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Perspective : MonoBehaviour {
 
@@ -22,7 +23,7 @@ public class Perspective : MonoBehaviour {
     }
 
 
-	public void changePerspective () { 
+	public void changePerspective (GameObject buttonLabel) { 
 
         foreach (GameObject wall in walls)
         {
@@ -31,5 +32,10 @@ public class Perspective : MonoBehaviour {
         }
         // Changes the perspective state to the opposite of what it was
         cam.orthographic = !cam.orthographic;
+        if (cam.orthographic){
+            buttonLabel.GetComponent<Text>().text = "Orthographic";
+        } else {
+            buttonLabel.GetComponent<Text>().text = "Perspective";
+        }
     }
 }
