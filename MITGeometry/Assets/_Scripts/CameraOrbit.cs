@@ -16,7 +16,7 @@ public class CameraOrbit : MonoBehaviour {
 
         if (!left)
 
-            dir *= -1.0f;
+        dir *= -1.0f;
         transform.RotateAround(target.position, Vector3.up, horizontalMovement * dir);
 
     }
