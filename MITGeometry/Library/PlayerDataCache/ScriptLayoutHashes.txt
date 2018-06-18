@@ -1,6 +1,6 @@
 WebGL
 PlayerPath?
-/home/brandon/versioned_projects/ghostmodegroup/build-delete3
+/home/brandon/versioned_projects/ghostmodegroup/build-delete4
 SceneListBegin?
 Assets/_Scenes/Prototype1.unity
 SceneListEnd?
@@ -144,6 +144,16 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 f02726adeff0a3ec5905565234b372da UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
+a13e348db57cdb225ef648cd7f959981 ProBuilderCore.dll:ProBuilder.Core.pb_BezierShape
+21884809e70215a8396ecba0132b501d ProBuilderCore.dll:ProBuilder.Core.pb_ColliderBehaviour
+d65f8e166eb4df1e46eb9eaa8ee261c1 ProBuilderCore.dll:ProBuilder.Core.pb_ColorPalette
+d05d1726290c11f0086c3ed9a61ae76d ProBuilderCore.dll:ProBuilder.Core.pb_Entity
+08d320ebcef1851d2d5edc2e728a92ee ProBuilderCore.dll:ProBuilder.Core.pb_LineRenderer
+d2977b0cef3f685c9205a83c3305fd4a ProBuilderCore.dll:ProBuilder.Core.pb_Object
+bd4524fe26cce0a9b511335274180259 ProBuilderCore.dll:ProBuilder.Core.pb_PolyShape
+8965b639c314e17576abd37f3ff28cd2 ProBuilderCore.dll:ProBuilder.Core.pb_PreferenceDictionary
+fbda78ccc1818bc0d63520bb52c4456a ProBuilderCore.dll:ProBuilder.Core.pb_Renderable
+21884809e70215a8396ecba0132b501d ProBuilderCore.dll:ProBuilder.Core.pb_TriggerBehaviour
 9e0ef5bf862444b5dc48b5a99554ce7c UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
@@ -160,5 +170,6 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraRotateInput
-23b5b65d1005446f386ceaa38d67073a Assembly-CSharp.dll:.CubeOverlap
+e08c69dcc34b81538fac75928e4a1659 Assembly-CSharp.dll:.CreateShape
 f55548bd46a31086da49f2ce37548eb2 Assembly-CSharp.dll:.CreateInput
+5f688c4a2e41b00bb6138cf8ee234ce5 Assembly-CSharp.dll:.CameraControls

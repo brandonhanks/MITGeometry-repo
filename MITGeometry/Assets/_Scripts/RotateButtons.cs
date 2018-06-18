@@ -5,7 +5,7 @@ using UnityEngine;
 public class RotateButtons : MonoBehaviour {
 
 	public GameObject cube;
-    private int delta = 5;
+    private int delta = 45;
 
 	void Update () {
 

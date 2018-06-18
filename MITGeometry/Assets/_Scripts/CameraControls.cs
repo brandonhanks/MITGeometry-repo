@@ -30,15 +30,15 @@ public class CameraControls : MonoBehaviour {
 				cam.transform.RotateAround(target.position, Vector3.up, horizontalMovement);
 				break;
 			case "down":
-				float newDownPitch = cam.transform.eulerAngles.x + verticalMovement;
-				cam.transform.eulerAngles = new Vector3 (newDownPitch, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
-				// cam.transform.RotateAround(target.position, Vector3.right, verticalMovement * -1.0f);
+				// float newDownPitch = cam.transform.eulerAngles.x + verticalMovement;
+				// cam.transform.eulerAngles = new Vector3 (newDownPitch, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
+				cam.transform.RotateAround(target.position, cam.transform.right, verticalMovement * -1.0f);
 				break;
 			case "up":
-				float newUpPitch = cam.transform.eulerAngles.x - verticalMovement;
-				cam.transform.eulerAngles = new Vector3 (newUpPitch, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
+				// float newUpPitch = cam.transform.eulerAngles.x - verticalMovement;
+				// cam.transform.eulerAngles = new Vector3 (newUpPitch, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
 				// cam.transform.eulerAngles.x += verticalMovement;
-				// cam.transform.RotateAround(target.position, Vector3.right, verticalMovement);
+				cam.transform.RotateAround(target.position, cam.transform.right, verticalMovement);
 				break;
 			case "home":
 				cam.transform.position = defaultpos;

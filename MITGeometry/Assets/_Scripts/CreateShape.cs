@@ -29,12 +29,20 @@ public class CreateShape : MonoBehaviour {
         // print(radius);
     }
 
+    int randomFive(float x, float y)
+    {
+        float val = Random.Range(x,y);
+        val /= 5;
+        int ival = (int) val;
+        return ival * 5;
+    }
+
     public void CreateInput(GameObject shape)
     {
             audio.PlayOneShot(clickSound, 1.0f); //play click sfx once
             radius = 0.0f;
 
-            Vector3 randomPosition =  new Vector3(Random.Range(-areaSizeX, areaSizeX), radius, Random.Range(-areaSizeY, areaSizeY)); //setting up length and widthh of area to populate
+            Vector3 randomPosition =  new Vector3(randomFive(-areaSizeX, areaSizeX), radius, randomFive(-areaSizeY, areaSizeY)); //setting up length and widthh of area to populate
 
             // if (!Physics.CheckSphere(randomPosition, radius) && clones < maxClones) //a physics based sphere is created around the cube instantiate and if there is a cube being created in that space, it will be recreated elsewhere
             // {
@@ -46,6 +54,7 @@ public class CreateShape : MonoBehaviour {
             // }
         
     }
+
 
     // static public Bounds RecursiveMeshBB(GameObject go) //this method checks for the bounds (edges) of the cube being created
     // {
