@@ -410,6 +410,7 @@ __pycache__/
 .vscode/
 Temp/
 metadata/
+ShaderCache/
 
 
 # ===========================
