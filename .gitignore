@@ -409,7 +409,7 @@ __pycache__/
 ### Other
 .vscode/
 Temp/
-
+metadata/
 
 
 # ===========================
