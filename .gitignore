@@ -410,6 +410,8 @@ __pycache__/
 .vscode/
 Temp/
 metadata/
+MITGeometry/Library/metadata/
+Library/metadata/
 ShaderCache/
 
 
