@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 326679560}
-  m_IndirectSpecularColor: {r: 0.8189943, g: 0.9132278, b: 0.89512825, a: 1}
+  m_IndirectSpecularColor: {r: 0.81899434, g: 0.9132278, b: 0.89512825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2241,7 +2241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 4.03}
+  m_AnchoredPosition: {x: 12.07, y: 6.72}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &454570302
@@ -3026,7 +3026,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-158336
+  m_Name: pb_Mesh4366
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -4655,8 +4655,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1399661685}
-  horizontalMovement: 45
-  verticalMovement: 45
   cam: {fileID: 513459998}
 --- !u!1 &878186611
 GameObject:
