@@ -450,3 +450,4 @@ sysinfo.txt
 *.stackdump
 MITGeometry/ProjectSettings/ProjectVersion.txt
 *.o
+*.info
