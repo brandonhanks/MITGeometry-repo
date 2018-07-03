@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// using UnityEditor;
+using UnityEditor;
 using UnityEngine.Networking;
 
-// [InitializeOnLoad]
+[InitializeOnLoad]
 public class Reporter : MonoBehaviour {
 
 	public string sessionID;
@@ -31,14 +31,21 @@ public class Reporter : MonoBehaviour {
 	void Update () {
 	}
 
-	void Event (var params) {
-		WWWForm form = new WWWForm();
-		form.AddField("sessionID", sessionID);
+	public void Event (object events) {
+		// WWWForm form = new WWWForm();
+		// form.AddField("sessionID", sessionID);
+		// foreach (var event in events) {
+		// 	var e = event.Split['='];
+		// 	form.AddField(e[0], e[1]);
+		// }
 		// form.AddField("type", "pickup");
 		// form.AddField("context", "toygame");
 		// form.AddField("params", "{count: " + count.ToString() + "}" );
-		UnityWebRequest www = UnityWebRequest.Post("http://gbakimchi.herokuapp.com/api/event/", form);
-		www.SendWebRequest();
-	}
-	
+		var eventJSON = JsonUtility.ToJson(events);
+		using (UnityWebRequest www = UnityWebRequest.Post("http://gbakimchi.herokuapp.com/api/event/", eventJSON))
+		{
+			www.SetRequestHeader("Content-Type", "application/json");
+			www.SendWebRequest();
+		}
+	}	
 }

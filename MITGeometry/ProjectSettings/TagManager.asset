@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Walls
+  - Cube
+  - Reporter
   layers:
   - Default
   - TransparentFX
