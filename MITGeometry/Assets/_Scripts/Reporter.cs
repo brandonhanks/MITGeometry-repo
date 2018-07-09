@@ -9,6 +9,7 @@ public class Reporter : MonoBehaviour {
 
 	void Start () {
 		StartCoroutine(getSessionID());
+		DontDestroyOnLoad(this.gameObject);
 	}
 
 	IEnumerator getSessionID () {

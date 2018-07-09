@@ -2,10 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class Report
+{
+    public string type;
+    public string context;
+    public string session;
+    public string data;
+}
+
 public class MoveInputButton : MonoBehaviour {
 
 	public GameObject cube;
     private int delta = 5;
+    Reporter reporter;
+
+    void Start () {
+        reporter = GameObject.Find("Reporter").GetComponent<Reporter>();
+    }
+
 
 	void Update () {
 
@@ -17,6 +31,13 @@ public class MoveInputButton : MonoBehaviour {
         Vector3 pos = cube.transform.position;
         pos.x += delta;
         cube.transform.position = pos; //moving X position
+
+        var e = new Report();
+        e.type = "testtype";
+        e.context = "testctx";
+        e.session = reporter.sessionID;
+        e.data = "testdata";
+        reporter.Event(e);
     }
 
     public void moveMinusX () {
