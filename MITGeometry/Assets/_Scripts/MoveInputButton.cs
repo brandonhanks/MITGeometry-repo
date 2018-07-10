@@ -2,13 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Report
-{
-    public string type;
-    public string context;
-    public string session;
-    public string data;
-}
 
 public class MoveInputButton : MonoBehaviour {
 
@@ -32,12 +25,11 @@ public class MoveInputButton : MonoBehaviour {
         pos.x += delta;
         cube.transform.position = pos; //moving X position
 
-        var e = new Report();
-        e.type = "testtype";
-        e.context = "testctx";
-        e.session = reporter.sessionID;
-        e.data = "testdata";
-        reporter.Event(e);
+
+        string type = "testtype";
+        string context = "testctx";
+        string data = "testdata";
+        reporter.Event(type, context, data);
     }
 
     public void moveMinusX () {
