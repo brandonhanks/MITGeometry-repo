@@ -13,12 +13,12 @@ public class SceneLoader : MonoBehaviour {
 	private Color textColor;
 	
 	private GameObject reporter;
-	private string sessionid;
+	// private string sessionid;
 
 	void Start() {
 		textColor = loadingText.color;
 		reporter = GameObject.Find("Reporter");
-		sessionid = reporter.GetComponent<Reporter>().sessionID;		
+		// sessionid = reporter.GetComponent<Reporter>().sessionID;		
 	}
 
     void Update() {
