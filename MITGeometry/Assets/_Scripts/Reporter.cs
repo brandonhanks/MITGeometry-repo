@@ -19,12 +19,12 @@ using UnityEngine.Networking;
 
 public class Reporter : MonoBehaviour {
 
-	public string sessionID;
-	public string csrftoken;
+	// public string sessionID;
+	// public string csrftoken;
 	// public ReportData reportdata;
 
 	void Start () {
-		StartCoroutine(getSessionID());
+		// StartCoroutine(getSessionID());
 		DontDestroyOnLoad(this.gameObject);
 	}
 
@@ -40,20 +40,20 @@ public class Reporter : MonoBehaviour {
 		UnityWebRequest session = UnityWebRequest.Get("https://gbakimchi.herokuapp.com/");
 		yield return session.SendWebRequest();
 		string cookieHeader = session.GetResponseHeader("Set-Cookie");
-		print(cookieHeader);
+		// print(cookieHeader);
 		string[] cookies = cookieHeader.Split(';');
 		foreach (var cookie in cookies)
 		{
 			print(cookie);
 			if (cookie.StartsWith("sessionid"))
 			{
-				sessionID = cookie.Split('=')[1].Trim(';');
+				// sessionID = cookie.Split('=')[1].Trim(';');
 				// reportdata.sessionID = sessionID;
 			}
 
 			if (cookie.StartsWith("csrftoken"))
 			{
-				csrftoken = cookie.Split('=')[1].Trim(';');
+				// csrftoken = cookie.Split('=')[1].Trim(';');
 			}
 		}
 	}
@@ -82,7 +82,7 @@ public class Reporter : MonoBehaviour {
 		// report.data = data;
 		
 		WWWForm form = new WWWForm();
-        form.AddField("session", sessionID);
+        // form.AddField("session", sessionID);
 		form.AddField("type", type);
 		form.AddField("context", context);
 		form.AddField("data", data);
@@ -101,7 +101,7 @@ public class Reporter : MonoBehaviour {
 		using (UnityWebRequest www = UnityWebRequest.Post("http://gbakimchi.herokuapp.com/api/event/", form))
 		{
 			// www.SetRequestHeader("Content-Type", "application/json");
-			www.SetRequestHeader("X-CSRFToken", csrftoken);
+			// www.SetRequestHeader("X-CSRFToken", csrftoken);
 			
             yield return www.SendWebRequest();
 
