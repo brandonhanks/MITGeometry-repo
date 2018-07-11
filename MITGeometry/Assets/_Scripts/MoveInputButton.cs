@@ -7,7 +7,8 @@ public class MoveInputButton : MonoBehaviour {
 
 	public GameObject cube;
     private int delta = 5;
-    Reporter reporter;
+
+    Reporter reporter = GameObject.Find("Reporter").GetComponent<Reporter>();
     class DataObj {
         public string shape_id;
         public string init_pos;
@@ -17,12 +18,6 @@ public class MoveInputButton : MonoBehaviour {
     DataObj data = new DataObj();
     string type = "move_shape";
     string dataJson;
-
-    void Start () {
-        reporter = GameObject.Find("Reporter").GetComponent<Reporter>();
-
-    }
-
 
 	void Update () {
 
