@@ -22,7 +22,7 @@ public class Reporter : MonoBehaviour {
 	// public string sessionID;
 	// public string csrftoken;
 	// public ReportData reportdata;
-
+	
 	void Start () {
 		// StartCoroutine(getSessionID());
 		DontDestroyOnLoad(this.gameObject);
@@ -39,23 +39,23 @@ public class Reporter : MonoBehaviour {
 	IEnumerator getSessionID () {
 		UnityWebRequest session = UnityWebRequest.Get("https://gbakimchi.herokuapp.com/");
 		yield return session.SendWebRequest();
-		string cookieHeader = session.GetResponseHeader("Set-Cookie");
-		// print(cookieHeader);
-		string[] cookies = cookieHeader.Split(';');
-		foreach (var cookie in cookies)
-		{
-			print(cookie);
-			if (cookie.StartsWith("sessionid"))
-			{
-				// sessionID = cookie.Split('=')[1].Trim(';');
-				// reportdata.sessionID = sessionID;
-			}
+		// string cookieHeader = session.GetResponseHeader("Set-Cookie");
+		// // print(cookieHeader);
+		// string[] cookies = cookieHeader.Split(';');
+		// foreach (var cookie in cookies)
+		// {
+		// 	print(cookie);
+		// 	if (cookie.StartsWith("sessionid"))
+		// 	{
+		// 		// sessionID = cookie.Split('=')[1].Trim(';');
+		// 		// reportdata.sessionID = sessionID;
+		// 	}
 
-			if (cookie.StartsWith("csrftoken"))
-			{
-				// csrftoken = cookie.Split('=')[1].Trim(';');
-			}
-		}
+		// 	if (cookie.StartsWith("csrftoken"))
+		// 	{
+		// 		// csrftoken = cookie.Split('=')[1].Trim(';');
+		// 	}
+		// }
 	}
 	
 
@@ -82,7 +82,7 @@ public class Reporter : MonoBehaviour {
 		// report.data = data;
 		
 		WWWForm form = new WWWForm();
-        // form.AddField("session", sessionID);
+        form.AddField("session", "fxsrgxlit7oges3oouubjmbp1qpy9wca");
 		
 		// form.AddField("context", context);
 
@@ -100,6 +100,7 @@ public class Reporter : MonoBehaviour {
 		// 	www.SetRequestHeader("Content-Type", "application/json");
 		// 	www.SendWebRequest();
 		// }
+		print(form);
 		using (UnityWebRequest www = UnityWebRequest.Post("http://gbakimchi.herokuapp.com/api/event/", form))
 		{
 			// www.SetRequestHeader("Content-Type", "application/json");

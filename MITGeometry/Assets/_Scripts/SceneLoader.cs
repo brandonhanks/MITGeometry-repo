@@ -12,7 +12,16 @@ public class SceneLoader : MonoBehaviour {
 
 	private Color textColor;
     Reporter reporter;
-	
+	class DataObj {
+        public string game_id;
+        public string version_num;
+        public string env_configs;
+    }
+    class EnvObj {
+        public string OS;
+    }
+
+
 	// private GameObject reporter;
 	// private string sessionid;
 
@@ -69,15 +78,17 @@ public class SceneLoader : MonoBehaviour {
                 // '{"orderedList": "true"}')
                 // prep
                 string opSys = SystemInfo.operatingSystem ?? "unknown";
-                var dataObj = new {
-                     game_id = "shapes_playtest_2", 
-                     version_num = "0.2.0", 
-                     env_configs = "{'OS':'" + opSys + "'}" 
-                };
+                EnvObj envObj = new EnvObj();
+                envObj.OS = opSys;
+                DataObj dataObj = new DataObj();
+                dataObj.game_id = "shapes_playtest_2";
+                dataObj.version_num = "0.2.0";
+                dataObj.env_configs =  JsonUtility.ToJson(envObj);
+                print(dataObj);
                 string dataJson  = JsonUtility.ToJson(dataObj);
-
+                
                 string type = "start_game";
-
+                print(dataJson);
                 reporter.Event(type, dataJson);
 				break;
 			}
