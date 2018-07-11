@@ -25,11 +25,10 @@ public class MoveInputButton : MonoBehaviour {
         pos.x += delta;
         cube.transform.position = pos; //moving X position
 
-
+        // string context = "testctx";
         string type = "testtype";
-        string context = "testctx";
         string data = "testdata";
-        reporter.Event(type, context, data);
+        reporter.Event(type, data);
     }
 
     public void moveMinusX () {

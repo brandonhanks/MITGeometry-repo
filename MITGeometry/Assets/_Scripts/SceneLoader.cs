@@ -11,14 +11,14 @@ public class SceneLoader : MonoBehaviour {
     public Text loadingText;
 
 	private Color textColor;
+    Reporter reporter;
 	
 	// private GameObject reporter;
 	// private string sessionid;
 
 	void Start() {
 		textColor = loadingText.color;
-		// reporter = GameObject.Find("Reporter");
-		// sessionid = reporter.GetComponent<Reporter>().sessionID;		
+        reporter = GameObject.Find("Reporter").GetComponent<Reporter>();
 	}
 
     void Update() {
@@ -65,6 +65,20 @@ public class SceneLoader : MonoBehaviour {
 		while (true) {
 			if (Input.GetKeyUp(KeyCode.Space)) 
 			{
+                // string context = "testctx";
+                // '{"orderedList": "true"}')
+                // prep
+                string opSys = SystemInfo.operatingSystem ?? "unknown";
+                var dataObj = new {
+                     game_id = "shapes_playtest_2", 
+                     version_num = "0.2.0", 
+                     env_configs = "{'OS':'" + opSys + "'}" 
+                };
+                string dataJson  = JsonUtility.ToJson(dataObj);
+
+                string type = "start_game";
+
+                reporter.Event(type, dataJson);
 				break;
 			}
 			yield return null;

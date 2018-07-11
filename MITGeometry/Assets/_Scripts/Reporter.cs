@@ -32,8 +32,8 @@ public class Reporter : MonoBehaviour {
 	void Update () {
 	}
 
-	public void Event (string type, string context, string data) {
-		StartCoroutine(EventPost(type, context, data));
+	public void Event (string type, string data) {
+		StartCoroutine(EventPost(type, data));
 	}
 
 	IEnumerator getSessionID () {
@@ -60,7 +60,7 @@ public class Reporter : MonoBehaviour {
 	
 
 
-	IEnumerator EventPost (string type, string context, string data) {
+	IEnumerator EventPost (string type, string data) {
 		// WWWForm form = new WWWForm();
 		// form.AddField("sessionID", sessionID);
 		// foreach (var event in events) {
@@ -83,8 +83,10 @@ public class Reporter : MonoBehaviour {
 		
 		WWWForm form = new WWWForm();
         // form.AddField("session", sessionID);
+		
+		// form.AddField("context", context);
+
 		form.AddField("type", type);
-		form.AddField("context", context);
 		form.AddField("data", data);
 
 		// var eventJSON = JsonUtility.ToJson(report);
