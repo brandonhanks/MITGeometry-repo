@@ -17,6 +17,15 @@ public class SelectionRaycast : MonoBehaviour {
 	// public bool objectSelected; //bool for debugging purposes
 	public GameObject[] cubes;
 
+	Reporter reporter;
+	class DataObj {
+        public string shape_id;
+    }
+	void Start() {
+        reporter = GameObject.Find("Reporter").GetComponent<Reporter>();
+
+	}
+
     void Update()
 	{
 
@@ -36,8 +45,14 @@ public class SelectionRaycast : MonoBehaviour {
 
 			
 			if (Input.GetMouseButtonDown (0)) {
+				DataObj data = new DataObj();
+				
 
 				if (selectedGameobject == hit.transform.gameObject){
+					data.shape_id = selectedGameobject.GetInstanceID().ToString();
+					string dataJson = JsonUtility.ToJson(data);
+					string type = "deselect_shape";
+            		reporter.Event(type, dataJson);
 					selectedGameobject = null;
 					goRend.sharedMaterial = material [0];
 				} else {
@@ -48,28 +63,16 @@ public class SelectionRaycast : MonoBehaviour {
 					}
 					goRend.sharedMaterial = material [1];
 
+					data.shape_id = selectedGameobject.GetInstanceID().ToString();
+					string dataJson = JsonUtility.ToJson(data);
+					string type = "select_shape";
+					reporter.Event(type, dataJson);
+
 				}
 				
 
-				// if (goRend.sharedMaterial == material [0]) {
-				// 	goRend.sharedMaterial = material [1];
-				// } else {
-				// 	goRend.sharedMaterial = material [0];
-				// }
 			}
-			// if (Input.GetMouseButtonDown (0)) { //if left mouse button is clicked, swap material from default material to highlighted material
-			// 	// 
-			// 	// objectSelected = true; //debugging
-			// 	// currentMaterial++; //increase material array by 1
-			// 	// currentMaterial %= material.Length; //toggle materials on click between 0 and 1
-			// 	// goRend.sharedMaterial = material [currentMaterial]; //set value of material array to currentMaterial
 
-
-			// } else {
-			
-			// 	// objectSelected = false; //debugging
-
-			// }
 
 		}
 
