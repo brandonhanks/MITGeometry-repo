@@ -16,8 +16,16 @@ public class CreateShape : MonoBehaviour {
     public int areaSizeY;
 
     float elapsed, radius;
-    // int clones;
-    // public Button btn;
+    
+    Reporter reporter;
+	class DataObj {
+        public string shape_instance_id;
+        public string shape_type;
+        public string dimensions;  
+        public string init_pos;
+        public string init_orient;
+    }
+
     
 
     void Start()
@@ -44,33 +52,23 @@ public class CreateShape : MonoBehaviour {
 
             Vector3 randomPosition =  new Vector3(randomFive(-areaSizeX, areaSizeX), radius, randomFive(-areaSizeY, areaSizeY)); //setting up length and widthh of area to populate
 
-            // if (!Physics.CheckSphere(randomPosition, radius) && clones < maxClones) //a physics based sphere is created around the cube instantiate and if there is a cube being created in that space, it will be recreated elsewhere
-            // {
-                // if (objectType == "cube") 
-                //     GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = randomPosition;  
-                // else
+
             GameObject clone = Instantiate(shape, randomPosition, Quaternion.identity);
             clone.SetActive(true);
+
+            DataObj data = new DataObj();
+            data.shape_instance_id = shape.GetInstanceID().ToString();
+            data.shape_type = shape.name;
+            data.dimensions = shape.transform.localScale.ToString();  
+            data.init_pos = shape.transform.position.ToString();
+            data.init_orient = shape.transform.rotation.ToString();
+            string type = "create_shape";
+            reporter.Event(type, JsonUtility.ToJson(data));
+
             // }
         
     }
 
 
-    // static public Bounds RecursiveMeshBB(GameObject go) //this method checks for the bounds (edges) of the cube being created
-    // {
-    //     MeshFilter[] mfs = go.GetComponentsInChildren<MeshFilter>();
-
-    //     if (mfs.Length > 0)
-    //     {
-    //         Bounds b = mfs[0].mesh.bounds;
-    //         for (int i = 1; i < mfs.Length; i++)
-    //         {
-    //             b.Encapsulate(mfs[i].mesh.bounds);
-    //         }
-    //         return b;
-    //     }
-    //     else
-    //         return new Bounds();
-    // }
 
 }
