@@ -12,28 +12,51 @@ public class CameraControls : MonoBehaviour {
 	Vector3 defaultrot;
 	Vector3 defaultpos;
 
+
+	Reporter reporter;
+    class DataObj {
+        public string prev_view;
+        public string curr_view;
+		public string btn_clicked;
+
+		public string ToJson()
+		{
+			return JsonUtility.ToJson(this);
+		}
+    }
+    DataObj data = new DataObj();
+	string type = "rotate_view";
+
+
 	void Start () {
+        reporter = GameObject.Find("Reporter").GetComponent<Reporter>();		
 		defaultpos = cam.transform.position;
 		defaultrot = cam.transform.eulerAngles;
 	}
 
     public void MoveCam(string direction)
     {
-     
+		data.prev_view = cam.transform.rotation.ToString();
 		switch (direction)
 		{
 			case "left":
+				
 				cam.transform.RotateAround(Vector3.zero, Vector3.up, horizontalMovement * -1.0f);
+				
+				data.btn_clicked = "left";
 				break;
 			case "right":
 				cam.transform.RotateAround(Vector3.zero, Vector3.up, horizontalMovement);
+				data.btn_clicked = "right";
 				break;
 			case "down":
 				// float newDownPitch = cam.transform.eulerAngles.x + verticalMovement;
 				// cam.transform.eulerAngles = new Vector3 (newDownPitch, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
 				if (cam.transform.eulerAngles.x > 10) {
 					cam.transform.RotateAround(Vector3.zero, cam.transform.right, verticalMovement * -1.0f);
+					
 				}
+				data.btn_clicked = "down";
 
 				break;
 			case "up":
@@ -43,30 +66,22 @@ public class CameraControls : MonoBehaviour {
 				if (cam.transform.eulerAngles.x < 80) {
 					cam.transform.RotateAround(Vector3.zero, cam.transform.right, verticalMovement);
 				}
+				data.btn_clicked = "up";
 
 				break;
 			case "home":
 				cam.transform.position = defaultpos;
 				cam.transform.eulerAngles = defaultrot;
+				type = "reset_view";
+				data.btn_clicked = "home";
 				break;
 			default:
 				break;
+			
 		}
-
-
-
-
+		data.curr_view = cam.transform.rotation.ToString();
+		reporter.Event(type, data.ToJson());
 
     }
 
 }
-
-
-	// // Use this for initialization
-
-	
-	// // Update is called once per frame
-	// void Update () {
-		
-	// }
-// }
