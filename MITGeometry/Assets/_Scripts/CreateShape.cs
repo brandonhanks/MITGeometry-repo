@@ -59,7 +59,7 @@ public class CreateShape : MonoBehaviour {
             clone.SetActive(true);
 
             DataObj data = new DataObj();
-            data.shape_id = shape.GetInstanceID().ToString();
+            data.shape_id = clone.GetInstanceID().ToString();
             data.shape_type = shape.name;
             data.dimensions = shape.transform.localScale.ToString();  
             data.init_pos = shape.transform.position.ToString();
