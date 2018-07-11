@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour {
 
     public int scene;
     public Text loadingText;
+    public Text uuidText;
 
 	private Color textColor;
     Reporter reporter;
@@ -28,9 +29,21 @@ public class SceneLoader : MonoBehaviour {
 	void Start() {
 		textColor = loadingText.color;
         reporter = GameObject.Find("Reporter").GetComponent<Reporter>();
+        
+        string opSys = SystemInfo.operatingSystem ?? "unknown";
+        EnvObj envObj = new EnvObj();
+        envObj.OS = opSys;
+        DataObj dataObj = new DataObj();
+        dataObj.game_id = "shapes_playtest_2";
+        dataObj.version_num = "0.2.0";
+        dataObj.env_configs =  JsonUtility.ToJson(envObj);
+        string dataJson  = JsonUtility.ToJson(dataObj);
+        string type = "start_game";
+        reporter.Event(type, dataJson, true);
 	}
 
     void Update() {
+        uuidText.text = reporter.sessionID;
 
         // If the player has pressed the space bar and a new scene is not loading yet...
         if ( loadScene == false) {
@@ -39,9 +52,9 @@ public class SceneLoader : MonoBehaviour {
             // ...set the loadScene boolean to true to prevent loading a new scene more than once...
             loadScene = true;
 
-			StartCoroutine(Wait(3));
+			StartCoroutine(Wait(5));
 
-            loadingText.text = "Press Space to Begin";
+            
 
 
             // ...and start a coroutine that will load the desired scene.
@@ -68,28 +81,14 @@ public class SceneLoader : MonoBehaviour {
 
     // The coroutine runs on its own at the same time as Update() and takes an integer indicating which scene to load.
     IEnumerator LoadNewScene() {
-
+        
         // This line waits for 3 seconds before executing the next line in the coroutine.
         // This line is only necessary for this demo. The scenes are so simple that they load too fast to read the "Loading..." text.
 		while (true) {
+            loadingText.text = "Press Space to Begin";
 			if (Input.GetKeyUp(KeyCode.Space)) 
 			{
-                // string context = "testctx";
-                // '{"orderedList": "true"}')
-                // prep
-                string opSys = SystemInfo.operatingSystem ?? "unknown";
-                EnvObj envObj = new EnvObj();
-                envObj.OS = opSys;
-                DataObj dataObj = new DataObj();
-                dataObj.game_id = "shapes_playtest_2";
-                dataObj.version_num = "0.2.0";
-                dataObj.env_configs =  JsonUtility.ToJson(envObj);
-                // print(dataObj);
-                string dataJson  = JsonUtility.ToJson(dataObj);
-                
-                string type = "start_game";
-                // print(dataJson);
-                reporter.Event(type, dataJson, true);
+                print(reporter.sessionID);
 				break;
 			}
 			yield return null;
