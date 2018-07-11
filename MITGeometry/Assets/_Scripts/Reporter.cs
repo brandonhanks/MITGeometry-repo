@@ -19,7 +19,7 @@ using UnityEngine.Networking;
 
 public class Reporter : MonoBehaviour {
 
-	// public string sessionID;
+	public string sessionID;
 	// public string csrftoken;
 	// public ReportData reportdata;
 	
@@ -32,8 +32,8 @@ public class Reporter : MonoBehaviour {
 	void Update () {
 	}
 
-	public void Event (string type, string data) {
-		StartCoroutine(EventPost(type, data));
+	public void Event (string type, string data, bool getID = false) {
+		StartCoroutine(EventPost(type, data, getID));
 	}
 
 	IEnumerator getSessionID () {
@@ -60,7 +60,7 @@ public class Reporter : MonoBehaviour {
 	
 
 
-	IEnumerator EventPost (string type, string data) {
+	IEnumerator EventPost (string type, string data, bool getID = false) {
 		// WWWForm form = new WWWForm();
 		// form.AddField("sessionID", sessionID);
 		// foreach (var event in events) {
@@ -82,7 +82,10 @@ public class Reporter : MonoBehaviour {
 		// report.data = data;
 		
 		WWWForm form = new WWWForm();
-        form.AddField("session", "fxsrgxlit7oges3oouubjmbp1qpy9wca");
+		if (!getID) {
+			print("using: " + sessionID);
+			form.AddField("session", sessionID);
+		}
 		
 		// form.AddField("context", context);
 
@@ -100,15 +103,21 @@ public class Reporter : MonoBehaviour {
 		// 	www.SetRequestHeader("Content-Type", "application/json");
 		// 	www.SendWebRequest();
 		// }
-		print(form);
+		// print(form);
 		using (UnityWebRequest www = UnityWebRequest.Post("http://gbakimchi.herokuapp.com/api/event/", form))
 		{
 			// www.SetRequestHeader("Content-Type", "application/json");
 			// www.SetRequestHeader("X-CSRFToken", csrftoken);
 			
             yield return www.SendWebRequest();
-
+			string response = www.downloadHandler.text;
 			print(www.downloadHandler.text);
+			if (getID) {
+				sessionID = response.Substring(response.Length-34, 32);
+				print("got: " + sessionID);	
+			}
+			
+
 
             if (www.isNetworkError || www.isHttpError)
             {

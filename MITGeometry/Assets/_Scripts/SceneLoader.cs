@@ -84,12 +84,12 @@ public class SceneLoader : MonoBehaviour {
                 dataObj.game_id = "shapes_playtest_2";
                 dataObj.version_num = "0.2.0";
                 dataObj.env_configs =  JsonUtility.ToJson(envObj);
-                print(dataObj);
+                // print(dataObj);
                 string dataJson  = JsonUtility.ToJson(dataObj);
                 
                 string type = "start_game";
-                print(dataJson);
-                reporter.Event(type, dataJson);
+                // print(dataJson);
+                reporter.Event(type, dataJson, true);
 				break;
 			}
 			yield return null;
