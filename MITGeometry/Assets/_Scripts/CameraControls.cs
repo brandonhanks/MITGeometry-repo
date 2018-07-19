@@ -45,7 +45,7 @@ public class CameraControls : MonoBehaviour {
 
     public void MoveCam(string direction)
     {
-		data.type = "rotate_view";
+		type = "rotate_view";
 		view.orient = cam.transform.rotation.ToString();
 		view.pos =  cam.transform.position.ToString();
 		data.prev_view = view.ToJson();
