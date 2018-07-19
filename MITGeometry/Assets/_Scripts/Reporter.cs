@@ -111,8 +111,10 @@ public class Reporter : MonoBehaviour {
 			
             yield return www.SendWebRequest();
 			string response = www.downloadHandler.text;
-			print(www.downloadHandler.text);
+			
 			if (getID) {
+				// print(response);
+				// print("getting ID");
 				sessionID = response.Substring(response.Length-34, 32);
 				print("got: " + sessionID);	
 			}

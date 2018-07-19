@@ -171,8 +171,8 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 ffcf5c2d858f1e5ee19cb2d701b6f381 Assembly-CSharp.dll:.CameraControls
-2763f9319f4903ee7eba3d19287de822 Assembly-CSharp.dll:.SceneLoader
+0bc7713d6a40ea1563194cd0e455c019 Assembly-CSharp.dll:.SceneLoader
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraRotateInput
 e08c69dcc34b81538fac75928e4a1659 Assembly-CSharp.dll:.CreateShape
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Reporter
+d143a9eb2da31d8e14ef127a2c5ae26d Assembly-CSharp.dll:.Reporter
 f55548bd46a31086da49f2ce37548eb2 Assembly-CSharp.dll:.CreateInput

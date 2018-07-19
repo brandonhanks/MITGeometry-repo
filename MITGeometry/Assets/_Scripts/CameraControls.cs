@@ -24,7 +24,16 @@ public class CameraControls : MonoBehaviour {
 			return JsonUtility.ToJson(this);
 		}
     }
+	class ViewObj {
+		public string pos;
+		public string orient;
+		public string ToJson()
+		{
+			return JsonUtility.ToJson(this);
+		}
+	}
     DataObj data = new DataObj();
+	ViewObj view = new ViewObj();
 	string type = "rotate_view";
 
 
@@ -36,7 +45,9 @@ public class CameraControls : MonoBehaviour {
 
     public void MoveCam(string direction)
     {
-		data.prev_view = cam.transform.rotation.ToString();
+		view.orient = cam.transform.rotation.ToString();
+		view.pos =  cam.transform.position.ToString();
+		data.prev_view = view.ToJson();
 		switch (direction)
 		{
 			case "left":
@@ -79,7 +90,9 @@ public class CameraControls : MonoBehaviour {
 				break;
 			
 		}
-		data.curr_view = cam.transform.rotation.ToString();
+		view.orient = cam.transform.rotation.ToString();
+		view.pos =  cam.transform.position.ToString();
+		data.curr_view = view.ToJson();
 		reporter.Event(type, data.ToJson());
 
     }
