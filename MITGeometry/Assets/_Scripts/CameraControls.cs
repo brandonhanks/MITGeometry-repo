@@ -34,7 +34,7 @@ public class CameraControls : MonoBehaviour {
 	}
     DataObj data = new DataObj();
 	ViewObj view = new ViewObj();
-	string type = "rotate_view";
+	string type;
 
 
 	void Start () {
@@ -45,6 +45,7 @@ public class CameraControls : MonoBehaviour {
 
     public void MoveCam(string direction)
     {
+		data.type = "rotate_view";
 		view.orient = cam.transform.rotation.ToString();
 		view.pos =  cam.transform.position.ToString();
 		data.prev_view = view.ToJson();
