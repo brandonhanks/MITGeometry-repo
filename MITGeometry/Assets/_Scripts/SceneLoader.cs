@@ -34,12 +34,14 @@ public class SceneLoader : MonoBehaviour {
         EnvObj envObj = new EnvObj();
         envObj.OS = opSys;
         DataObj dataObj = new DataObj();
-        dataObj.game_id = "shapes_playtest_3";
-        dataObj.version_num = "0.3.0";
+        dataObj.game_id = "shapes_playtest_4";
+        dataObj.version_num = "0.4.0";
         dataObj.env_configs =  JsonUtility.ToJson(envObj);
         string dataJson  = JsonUtility.ToJson(dataObj);
         string type = "start_game";
         reporter.Event(type, dataJson, true);
+        print("trying sock");
+        reporter.SockEvent(type, dataJson);
 	}
 
     void Update() {
