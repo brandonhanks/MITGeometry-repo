@@ -8,6 +8,9 @@ public class Reporter : MonoBehaviour {
 
 	public string sessionID;
 	public WebSocket w;
+	public bool readyToPost = false;
+	string sockType = "";
+	string sockData = "";
 
 	class DataObj {
 			public string type;
@@ -20,31 +23,45 @@ public class Reporter : MonoBehaviour {
 
 	void Start () {
 		DontDestroyOnLoad(this.gameObject);
-		StartCoroutine(OpenSocket());
+		
+		// StartCoroutine(OpenSocket());
+		StartCoroutine(SockEventPost());
 	}
-	IEnumerator OpenSocket () {
-		print("socket opening");
-		w = new WebSocket(new Uri("ws://gbakimchi.herokuapp.com/ws/"));
-		yield return StartCoroutine(w.Connect());
-	}
+
 
 	// Update is called once per frame
 	void Update () {
 	}
 
+
 	public void SockEvent (string type, string data) {
-		StartCoroutine(SockEventPost(type, data));
+		this.sockType = type;
+		this.sockData = data;
+		this.readyToPost = true;
+
 	}
-	IEnumerator SockEventPost (string type, string data) {
-		print("trying to post");
-		DataObj sockdata = new DataObj();
-		sockdata.type = "ws-" + type;
-		sockdata.data = data;
-		string sockdata_str = sockdata.ToJson();
-		print(sockdata_str);
-		w.SendString(sockdata_str);
-		w.SendString("test - works");
-		yield return 0;
+	IEnumerator SockEventPost () {
+		w = new WebSocket(new Uri("ws://gbakimchi.herokuapp.com/ws/"));
+		yield return StartCoroutine(w.Connect());
+		while (true){
+			if (this.readyToPost) {
+				print("trying to post");
+				DataObj sockdata = new DataObj();
+				sockdata.type = "ws-" + this.sockType;
+				sockdata.data = this.sockData;
+				readyToPost = false;
+				string sockdata_str = sockdata.ToJson();
+				print(sockdata_str);
+				w.SendString(sockdata_str);
+			}
+			if (w.error != null)
+			{
+				Debug.LogError ("Error: "+w.error);
+				break;
+			}
+			yield return 0;
+		}
+		w.Close();
 	}
 
 	public void Event (string type, string data, bool getID = false) {

@@ -33,10 +33,7 @@ public class CreateShape : MonoBehaviour {
         reporter = GameObject.Find("Reporter").GetComponent<Reporter>();
 
         audio = GetComponent<AudioSource>(); //setting up audio source
-        //  btn.onClick.AddListener(() => { CreateInput(param); });
-        // Bounds maxBounds = RecursiveMeshBB(cubeClone);
-        // radius = maxBounds.size.magnitude;
-        // print(radius);
+
     }
 
     int randomFive(float x, float y)
@@ -67,8 +64,8 @@ public class CreateShape : MonoBehaviour {
             string type = "create_shape";
             string dataJson = JsonUtility.ToJson(data);
             reporter.Event(type, dataJson);
+            reporter.SockEvent(type, dataJson);
 
-            // }
         
     }
 

@@ -41,6 +41,7 @@ public class SceneLoader : MonoBehaviour {
         string type = "start_game";
         reporter.Event(type, dataJson, true);
         print("trying sock");
+        // reporter.SockEvent(type + "2", dataJson);
         reporter.SockEvent(type, dataJson);
 	}
 
