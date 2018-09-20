@@ -7,6 +7,7 @@ public class RotateButtons : MonoBehaviour {
 	public GameObject cube;
     private int delta = 45;
 
+    public int ang = 0;
 
     Reporter reporter;
     class DataObj {
@@ -37,9 +38,8 @@ public class RotateButtons : MonoBehaviour {
         data.shape_id = cube.GetInstanceID().ToString();
         data.init_orient = cube.transform.rotation.ToString();
 
-        Vector3 pos = cube.transform.rotation.eulerAngles;
-        pos.x += delta;
-        cube.transform.rotation = Quaternion.Euler(pos.x, pos.y, pos.z); //moving X rotation
+        cube.transform.Rotate(delta, 0, 0, Space.World);
+
         data.end_orient = cube.transform.rotation.ToString();
         data.btn_clicked = "rotatePlusX";
         reporter.Event(type, data.ToJson());
@@ -48,9 +48,9 @@ public class RotateButtons : MonoBehaviour {
     public void moveMinusX () {
         data.shape_id = cube.GetInstanceID().ToString();
         data.init_orient = cube.transform.rotation.ToString();
-        Vector3 pos = cube.transform.rotation.eulerAngles;
-        pos.x -= delta;
-        cube.transform.rotation = Quaternion.Euler(pos.x, pos.y, pos.z); //moving X rotation
+
+        cube.transform.Rotate(-1 * delta, 0, 0, Space.World);
+
         data.end_orient = cube.transform.rotation.ToString();
         data.btn_clicked = "rotateMinusX";
         reporter.Event(type, data.ToJson());
@@ -60,9 +60,9 @@ public class RotateButtons : MonoBehaviour {
 	public void movePlusY () {
         data.shape_id = cube.GetInstanceID().ToString();
         data.init_orient = cube.transform.rotation.ToString();
-        Vector3 pos = cube.transform.rotation.eulerAngles;
-        pos.y += delta;
-        cube.transform.rotation = Quaternion.Euler(pos.x, pos.y, pos.z); //moving Y rotation
+        
+        cube.transform.Rotate(0, delta, 0, Space.World);
+
         data.end_orient = cube.transform.rotation.ToString();
         data.btn_clicked = "rotatePlusY";
         reporter.Event(type, data.ToJson());
@@ -71,9 +71,9 @@ public class RotateButtons : MonoBehaviour {
     public void moveMinusY () {
         data.shape_id = cube.GetInstanceID().ToString();
         data.init_orient = cube.transform.rotation.ToString();
-        Vector3 pos = cube.transform.rotation.eulerAngles;
-        pos.y -= delta;
-        cube.transform.rotation = Quaternion.Euler(pos.x, pos.y, pos.z); //moving Y rotation
+               
+        cube.transform.Rotate(0, -1 * delta, 0, Space.World);
+
         data.end_orient = cube.transform.rotation.ToString();
         data.btn_clicked = "rotateMinusY";
         reporter.Event(type, data.ToJson());
@@ -83,9 +83,8 @@ public class RotateButtons : MonoBehaviour {
 	public void movePlusZ () {
         data.shape_id = cube.GetInstanceID().ToString();
         data.init_orient = cube.transform.rotation.ToString();
-        Vector3 pos = cube.transform.rotation.eulerAngles;
-        pos.z += delta;
-        cube.transform.rotation = Quaternion.Euler(pos.x, pos.y, pos.z); //moving Z rotation
+        cube.transform.Rotate(0, 0, delta, Space.World);
+
         data.end_orient = cube.transform.rotation.ToString();
         data.btn_clicked = "rotatePlusZ";
         reporter.Event(type, data.ToJson());
@@ -94,9 +93,7 @@ public class RotateButtons : MonoBehaviour {
     public void moveMinusZ () {
         data.shape_id = cube.GetInstanceID().ToString();
         data.init_orient = cube.transform.rotation.ToString();
-        Vector3 pos = cube.transform.rotation.eulerAngles;
-        pos.z -= delta;
-        cube.transform.rotation = Quaternion.Euler(pos.x, pos.y, pos.z); //moving Z rotation
+        cube.transform.Rotate(0, 0, -1 * delta, Space.World);
         data.end_orient = cube.transform.rotation.ToString();
         data.btn_clicked = "rotateMinusZ";
         reporter.Event(type, data.ToJson());

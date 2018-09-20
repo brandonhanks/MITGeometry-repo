@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using System;
 
 // public class ReportData
 // {
@@ -22,10 +23,35 @@ public class Reporter : MonoBehaviour {
 	public string sessionID;
 	// public string csrftoken;
 	// public ReportData reportdata;
+	public WebSocket w;
 	
 	void Start () {
 		// StartCoroutine(getSessionID());
 		DontDestroyOnLoad(this.gameObject);
+		StartCoroutine(SocketTest());
+	}
+	IEnumerator SocketTest () {
+		print("sock test");
+		w = new WebSocket(new Uri("ws://gbakimchi.herokuapp.com/ws/"));
+		yield return StartCoroutine(w.Connect());
+		w.SendString("Hi there");
+		int i=0;
+		while (true)
+		{
+			string reply = w.RecvString();
+			if (reply != null)
+			{
+				Debug.Log ("Received: "+reply);
+				w.SendString("Hi there"+i++);
+			}
+			if (w.error != null)
+			{
+				Debug.LogError ("Error: "+w.error);
+				break;
+			}
+			yield return 0;
+		}
+		w.Close();
 	}
 
 	// Update is called once per frame
